@@ -1,4 +1,4 @@
-schema: ./src/Schema/index.ts
+schema: ./src/index.ts
 require:
   - ts-node/register
 overwrite: true
