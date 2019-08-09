@@ -5,6 +5,3 @@ export const typeDefs = gql`
     Tag: Tag__Query!
   }
 `;
-
-// History: History__Query!
-// Narrative: Narrative__Query!
