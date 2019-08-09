@@ -1,8 +1,4 @@
 import gql from "graphql-tag";
-import Moment from "moment";
-
-import { Resolvers } from "../../GeneratedTypes";
-import * as Utility from "../Utility";
 
 export const typeDefs = gql`
   type Tag__Tag implements Node__Identifiable & Node__Persisted {
@@ -48,29 +44,3 @@ export const typeDefs = gql`
     names: [String!]
   }
 `;
-
-export const resolvers: Resolvers = {
-  Tag__Tag: {
-    metadata: () => ({
-      created: Moment(),
-      updated: Moment()
-    }),
-
-    connections: async (tag, _args, context) =>
-      context.archive
-        .getRawTagsByIDs(tag.connections)
-        .map(tag => tag.getOrElseL(Utility.throwError))
-  },
-
-  Tag__Query: {
-    tags: async (_, _args, context) =>
-      void console.log("-------", context.archive.getAllTags()) ||
-      context.archive.getAllTags()
-  },
-
-  Tag__Mutation: {
-    create: async (_, _args, context) => {
-      return context.archive.writeNewTag(_args);
-    }
-  }
-};

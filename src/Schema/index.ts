@@ -18,27 +18,5 @@ export const typeDefs = gql`
   ${Tag.typeDefs}
 `;
 
-// ${Tag.typeDefs}
-
 // for graphql code generator
 export const schema = typeDefs;
-
-// export const resolvers: Resolvers = {
-//   Query: {
-//     Tag: () => Tag.resolvers.Tag__Query
-//     // History: () => History.resolvers.History__Query
-//     // Narrative: () => Narrative.resolvers.Narrative__Query
-//   },
-
-//   Mutation: {
-//     Tag: () => Tag.resolvers.Tag__Mutation
-//     // History: () => History.resolvers.History__Mutation,
-//     // Narrative: () => Narrative.resolvers.Narrative__Mutation
-//   },
-
-//   ...Node.resolvers,
-//   ...Time.resolvers,
-//   ...Tag.resolvers
-//   // ...History.resolvers
-//   // ...Narrative.resolvers
-// };
